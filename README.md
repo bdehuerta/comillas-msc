@@ -99,6 +99,19 @@ same pipeline; nothing in the CSS changes.
 
 Then open <http://localhost:8000>.
 
+## Sending the site to Claude Design
+
+    ./export-for-design.sh
+
+Writes `~/Downloads/comillas-msc-site.zip` containing every tracked file plus
+a `BRIEF.md` that tells the tool what exists, which constraints must survive
+(reduced-motion, contrast ratios, the hero scrim) and what to work on. Re-run
+it whenever the site changes so the bundle is never stale.
+
+Simpler alternative: just give Claude Design the live URL,
+<https://bdehuerta.github.io/comillas-msc/>. The zip is better when you want
+it to respect the existing code and tokens rather than start over.
+
 ## Publish a change
 
     git add -A && git commit -m "Update events" && git push
