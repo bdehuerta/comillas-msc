@@ -5,6 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 OUT="$HOME/Downloads/comillas-msc-site.zip"
+rm -f "$OUT"   # zip anade a un archivo existente; sin esto arrastra ficheros borrados
 TMP=$(mktemp -d)
 DEST="$TMP/comillas-msc-site"
 mkdir -p "$DEST"
