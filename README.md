@@ -1,20 +1,53 @@
 # Comillas Marketing & Strategy Club — website
 
 Plain static site. No build step, no dependencies, no framework.
-Two files do all the work: `index.html` (content) and `style.css` (design).
+Three files do the work: `index.html`, `style.css`, `motion.js`.
 
-## Edit it
+Live: <https://bdehuerta.github.io/comillas-msc/>
 
-Open `index.html` in any text editor and change the words. Search for
-`PLACEHOLDER` — every spot that still needs real information is marked
-with it.
+## Design
 
-What needs filling in:
+Structure and typography follow the Comillas PE&VC Club site as a reference:
+light-dominant layout, one dark CTA band, editorial columns split by hairline
+rules rather than boxed cards, and an italic-serif emphasis phrase in every
+heading.
 
-- Stats row (member count, sessions, partners, degrees)
-- Event dates and the meeting time/room
-- Team names and one-line bios
-- Contact email, Instagram URL, LinkedIn URL
+Fonts: Playfair Display (headings), Plus Jakarta Sans (body),
+Cormorant Garamond (large numerals).
+
+## Colours
+
+The whole palette is eight variables at the top of `style.css`, sampled from
+the club crest. Change them and everything follows:
+
+    --brand-deepest  #3d0607   darkest burgundy, dark CTA band
+    --brand-deep     #6c0c0c   crest burgundy, buttons
+    --brand          #8a1418   italic emphasis
+    --gold           #f0a824   crest gold, rules and highlights
+    --gold-deep      #b8790c   gold that stays legible on white
+
+Dark mode is derived from the same tokens and follows the OS setting.
+
+## What still needs filling in
+
+Search for `PLACEHOLDER`:
+
+- `PLACEHOLDER_FORM_URL` — the sign-up form, used by three CTAs
+- Stat numbers — the four `<span class="num" data-fill="number">` em-dashes
+- `PLACEHOLDER BRAND` — partner names in the marquee, plus the note under it
+- Event dates, meeting weekday/time/room
+- Board names and one-line bios
+- `PLACEHOLDER@example.com` in the footer
+
+Instagram and LinkedIn are already linked in the hero, the join band and the
+footer.
+
+## Motion
+
+`motion.js` handles scroll reveals (IntersectionObserver, 90ms sibling
+stagger), the hero entrance on load, and the stat count-up. It only animates
+numeric stats, so the em-dash placeholders are left alone. Everything is
+disabled under `prefers-reduced-motion`.
 
 ## Preview locally
 
@@ -31,6 +64,7 @@ GitHub Pages redeploys in about a minute.
 
 ## Hosting
 
-- Repo: GitHub, `broundonb/comillas-msc`
-- Host: GitHub Pages, deployed from the `main` branch
-- Custom domain: set in Settings → Pages, and recorded in the `CNAME` file
+- Repo: `bdehuerta/comillas-msc`
+- Host: GitHub Pages, deployed from `main`
+- Custom domain: not yet set. Buy it, add a `CNAME` file containing the bare
+  domain, and set it in Settings → Pages.
