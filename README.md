@@ -38,7 +38,6 @@ Search for `PLACEHOLDER`:
 - Stat numbers — the four `<span class="num" data-fill="number">` em-dashes
 - `PLACEHOLDER BRAND` — partner names in the marquee, plus the note under it
 - Event dates, meeting weekday/time/room
-- Board names and one-line bios
 - `PLACEHOLDER@example.com` in the footer
 
 Note: accented characters are written as HTML entities (`&aacute;`, `&ntilde;`)
