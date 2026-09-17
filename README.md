@@ -1,5 +1,7 @@
 # Comillas Marketing & Strategy Club — website
 
+Site copy is in Castilian Spanish (`lang="es-ES"`).
+
 Plain static site. No build step, no dependencies, no framework.
 Three files do the work: `index.html`, `style.css`, `motion.js`.
 
@@ -38,6 +40,9 @@ Search for `PLACEHOLDER`:
 - Event dates, meeting weekday/time/room
 - Board names and one-line bios
 - `PLACEHOLDER@example.com` in the footer
+
+Note: accented characters are written as HTML entities (`&aacute;`, `&ntilde;`)
+so the file stays safe to edit in any editor.
 
 Instagram and LinkedIn are already linked in the hero, the join band and the
 footer.
