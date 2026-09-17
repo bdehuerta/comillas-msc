@@ -31,6 +31,7 @@ written as HTML entities. Keep both conventions.
 2. Sticky translucent nav
 3. Hero — amber field, etched ICADE facade, already redesigned, DO NOT CHANGE
 4. `#pillars` — four numbered editorial columns split by hairline rules
+   (01 campaigns, 02 research, 03 events, 04 competitions)
 5. `#program` — Market Analysts, two bullet lists
 6. `#events` — vertical timeline, five entries
 7. `#join` — dark closing band with grain
