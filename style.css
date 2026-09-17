@@ -99,6 +99,39 @@ body {
 
 /* ---------------- hero ---------------- */
 /* ============================================================
+   BASE TYPE AND CONTROLS
+   Shared by every section; the hero overrides these afterwards.
+   ============================================================ */
+h1 {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 500;
+  letter-spacing: -0.025em; margin: 0 0 30px; max-width: 16ch;
+}
+h1 em, h2 em { font-style: italic; font-weight: 600; color: var(--brand); }
+
+.lede {
+  font-size: clamp(1rem, 1.6vw, 1.12rem); color: var(--ink-soft);
+  max-width: 60ch; margin: 0 0 34px; line-height: 1.68;
+}
+.lede.narrow { max-width: 54ch; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.btn {
+  display: inline-block; text-decoration: none; padding: 13px 26px;
+  border-radius: 999px; font-size: 14px; font-weight: 600;
+  background: var(--brand-deepest); color: #fff;
+  border: 1px solid var(--brand-deepest);
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { background: var(--brand-wash); border-color: var(--brand-deep); color: var(--accent); }
+.btn.ghost.light { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+.btn.ghost.light:hover { background: rgba(255,255,255,.12); border-color: #fff; color: #fff; }
+
+.hero-cue { display: flex; align-items: center; gap: 16px; }
+.hero-cue a { text-decoration: none; }
+.hero-rule { display: block; }
+
+/* ============================================================
    HERO — from the Claude Design handoff. Reproduced numerically:
    amber field, sun wash, etched ICADE facade, readability scrim.
    The scrim is what keeps the body copy accessible over the bars.
@@ -138,7 +171,8 @@ body {
   font-size: clamp(22px, 2.6vw, 36px); color: #45100f;
   margin: 14px 0 0; display: block;
 }
-.hero .slogan span::after { display: none; }
+.hero .slogan { display: block; font-family: "Playfair Display", Georgia, serif;
+  font-style: italic; }
 .hero .lede {
   max-width: 640px; font-size: clamp(16px, 1.32vw, 19.5px); line-height: 1.62;
   color: #47110f; margin: 34px 0 0; text-wrap: pretty;
