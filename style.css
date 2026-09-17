@@ -412,7 +412,7 @@ h2 { margin-bottom: var(--space-xl); }
 .o-pillars   { width: 148px; top: 6%;   right: -40px; }
 
 .o-program   { width: 250px; top: 12%;  left: -96px; }
-.o-events    { width: 210px; bottom: 6%; right: -74px; }
+.o-events    { width: 230px; bottom: 8%; right: -66px; }
 
 @media (max-width: 860px) {
   .obj { opacity: .07; }

@@ -70,6 +70,7 @@ downloaded from PurePNG and downscaled and quantised locally:
 
     objects/racquet-photo.png     purepng.com/photo/29138  (2.0MB -> 24KB)
     objects/sunglasses-photo.png  purepng.com/photo/29740  (568KB -> 20KB)
+    objects/bag-photo.png         purepng.com shopping-bag (157KB -> 22KB)
 
 Everything else is drawn in this repo, so it carries no licensing
 obligations at all.
