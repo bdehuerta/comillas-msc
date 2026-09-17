@@ -104,3 +104,36 @@
   window.addEventListener('resize', onScroll, { passive: true });
   place();
 })();
+
+/* Masked word reveal for [data-split] headings.
+   The original sentence is kept verbatim in an .sr-only node so screen
+   readers announce it normally; the animated spans are aria-hidden. */
+(function () {
+  var heads = document.querySelectorAll('[data-split]');
+  if (!heads.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  for (var i = 0; i < heads.length; i++) {
+    var el = heads[i];
+    var text = el.textContent.trim();
+
+    el.classList.remove('reveal');          // the mask replaces the fade
+    el.classList.add('is-split');
+    el.innerHTML =
+      '<span class="sr-only">' + text + '</span>' +
+      '<span aria-hidden="true">' +
+      text.split(/\s+/).map(function (w, n) {
+        return '<span class="word-mask"><span class="word-inner" style="transition-delay:' +
+               (n * 70) + 'ms">' + w + '</span></span>';
+      }).join(' ') +
+      '</span>';
+
+    if (reduced) { el.classList.add('is-in'); continue; }
+
+    (function (node) {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { node.classList.add('is-in'); });
+      });
+    })(el);
+  }
+})();

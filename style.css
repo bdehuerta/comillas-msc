@@ -344,3 +344,62 @@ h2 { margin-bottom: var(--space-xl); }
 @media (prefers-reduced-motion: reduce) {
   .obj { transform: none !important; transition: none !important; }
 }
+
+/* ============================================================
+   SIGNATURE INTERACTION — masked word reveal on the headline.
+   One kinetic treatment for the whole site, repeated nowhere
+   else. The real sentence stays in the accessibility tree;
+   the split spans are aria-hidden.
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.word-mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.word-inner {
+  display: inline-block; transform: translateY(110%);
+  transition: transform .82s cubic-bezier(.16,1,.3,1);
+}
+.is-split.is-in .word-inner { transform: translateY(0); }
+.motion-off .word-inner { transform: none; transition: none; }
+
+/* fluid scale */
+h1 { font-size: clamp(2.6rem, 1.8rem + 5.4vw, 6.4rem); line-height: .98; }
+
+/* ---- grain on the dark closing band ---- */
+.join::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  opacity: .055; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.join .wrap { position: relative; z-index: 2; }
+
+/* ---- focus states: never rely on hover alone ---- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px;
+}
+.join a:focus-visible, .announce a:focus-visible { outline-color: var(--gold); }
+
+/* ---- reduced motion: belt and braces over the per-effect rules ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+  .word-inner { transform: none !important; }
+}
+
+/* Photographic props: multiply blends them into the cream so they read as
+   part of the page rather than clipart dropped on top. Desaturated toward
+   the brand rather than left at full stock-photo colour. */
+.obj-photo {
+  opacity: .17; mix-blend-mode: multiply;
+  filter: saturate(.55) contrast(1.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .obj-photo {
+    mix-blend-mode: screen; opacity: .13; filter: saturate(.5) brightness(1.1);
+  }
+}
+.o-hero-b { width: 240px; bottom: -18%; left: -60px; }
+.o-hero-a { width: 260px; top: 8%; right: 30%; }

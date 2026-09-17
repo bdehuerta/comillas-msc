@@ -59,6 +59,17 @@ masking everything outside the circle:
     icon-180.png  180px, apple-touch-icon
     icon-32.png    32px, favicon
 
+## Image credits
+
+The photographic props are CC0 (public domain, commercial use permitted),
+downloaded from PurePNG and downscaled and quantised locally:
+
+    objects/racquet-photo.png     purepng.com/photo/29138  (2.0MB -> 24KB)
+    objects/sunglasses-photo.png  purepng.com/photo/29740  (568KB -> 20KB)
+
+The remaining props and the ICADE facade are drawn as SVG in this repo, so
+they carry no licensing obligations at all.
+
 ## Preview locally
 
     cd ~/comillas-msc
