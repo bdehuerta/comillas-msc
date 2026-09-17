@@ -355,6 +355,8 @@ h2 { margin-bottom: var(--space-xl); }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  /* the split spans carry the visible copy, so keep this out of selections */
+  -webkit-user-select: none; user-select: none;
 }
 .word-mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
 .word-inner {
