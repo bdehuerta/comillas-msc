@@ -97,13 +97,48 @@ body {
 .nav-cta:hover { background: var(--brand-deep); transform: translateY(-1px); }
 
 /* ---------------- hero ---------------- */
-.hero { position: relative; overflow: hidden; padding: 104px 0 44px; }
-.hero-facade {
-  position: absolute; right: -4%; bottom: -6%;
-  width: min(620px, 52vw); height: auto; opacity: .055;
-  pointer-events: none; user-select: none; z-index: 0;
+/* Gold hero, straight off the club's own pamphlet. Burgundy on this gold
+   is 6.09:1, so every text size passes AA; white would be 2.03:1, which is
+   why the buttons are filled burgundy rather than white. */
+.hero {
+  position: relative; overflow: hidden;
+  padding: 104px 0 188px;
+  background: linear-gradient(168deg, #f3b44a 0%, #f0a824 58%, #e79a16 100%);
 }
-@media (max-width: 860px) { .hero-facade { opacity: .04; right: -28%; } }
+.hero-valla {
+  position: absolute; left: 0; right: 0; bottom: -2px; width: 100%;
+  height: auto; opacity: .16; pointer-events: none; user-select: none; z-index: 0;
+}
+.hero h1, .hero .slogan { color: var(--brand-deepest); }
+.hero h1 em { color: var(--brand-deep); }
+.hero .lede { color: #5e2412; }
+.hero .btn { background: var(--brand-deepest); color: #fff; border-color: var(--brand-deepest); }
+.hero .btn:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+.hero .btn.ghost { background: transparent; color: var(--brand-deepest);
+  border-color: rgba(61,6,7,.42); }
+.hero .btn.ghost:hover { background: rgba(61,6,7,.08); border-color: var(--brand-deepest); }
+.hero .hero-cue { border-top-color: rgba(61,6,7,.22); }
+.hero .hero-cue a { color: #6b3a13; }
+.hero .hero-cue a:hover { color: var(--brand-deepest); }
+.hero .hero-rule { background: linear-gradient(90deg, var(--brand-deepest), transparent); }
+.hero a:focus-visible { outline-color: var(--brand-deepest); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero {
+    background: linear-gradient(168deg, #7a5410 0%, #6b4a0e 60%, #55390a 100%);
+  }
+  :root:not([data-theme="light"]) .hero h1,
+  :root:not([data-theme="light"]) .hero .slogan { color: #fdf3e2; }
+  :root:not([data-theme="light"]) .hero h1 em { color: var(--gold); }
+  :root:not([data-theme="light"]) .hero .lede { color: #e8d6ba; }
+  :root:not([data-theme="light"]) .hero .btn { background: #fdf3e2; color: #3d0607; border-color: #fdf3e2; }
+  :root:not([data-theme="light"]) .hero .btn.ghost { background: transparent; color: #fdf3e2;
+    border-color: rgba(253,243,226,.4); }
+  :root:not([data-theme="light"]) .hero-valla { opacity: .2; }
+}
+
+@media (max-width: 600px) { .hero-valla { opacity: .13; } }
+
 .hero-content { position: relative; }
 .eyebrow { margin: 0 0 26px; font-size: 11.5px; font-weight: 600;
   letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
