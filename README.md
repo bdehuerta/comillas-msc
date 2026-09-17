@@ -71,8 +71,21 @@ downloaded from PurePNG and downscaled and quantised locally:
     objects/racquet-photo.png     purepng.com/photo/29138  (2.0MB -> 24KB)
     objects/sunglasses-photo.png  purepng.com/photo/29740  (568KB -> 20KB)
 
-The remaining props and the ICADE facade are drawn as SVG in this repo, so
-they carry no licensing obligations at all.
+Everything else is drawn in this repo, so it carries no licensing
+obligations at all.
+
+## The fence (valla)
+
+`objects/valla.svg` is the source: stone piers with pyramidal caps and
+spear-tipped bars, drawn from the real boundary railing at Comillas.
+`objects/valla.png` is what the page loads, rendered from it at 2x:
+
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+      --default-background-color=00000000 --window-size=1600,620 \
+      --screenshot=objects/valla.png objects/_valla.html
+
+Edit the SVG, re-render, and commit both.
 
 ## Preview locally
 
