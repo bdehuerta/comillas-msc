@@ -62,3 +62,45 @@
     }, { threshold: 0.4 }).observe(statBand);
   }
 })();
+
+/* Scroll-driven parallax for the decorative props.
+   One rAF-throttled listener drives every object; each drifts at its own
+   rate and rotates slightly, so the page gains depth without the objects
+   ever competing with the text. Disabled under reduced-motion. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var objs = [].slice.call(document.querySelectorAll('.obj'));
+  if (!objs.length) return;
+
+  var ticking = false;
+
+  function place() {
+    var vh = window.innerHeight;
+    for (var i = 0; i < objs.length; i++) {
+      var el = objs[i];
+      var host = el.closest('section');
+      if (!host) continue;
+      var r = host.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) continue;  // offscreen: skip
+
+      // -1 when the section is entering, +1 when it is leaving
+      var progress = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
+      var speed = parseFloat(el.dataset.speed) || 0.2;
+      var rot = parseFloat(el.dataset.rot) || 0;
+
+      var y = progress * speed * 220;
+      var deg = rot + progress * rot * 0.5;
+      el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) rotate(' + deg.toFixed(2) + 'deg)';
+    }
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(place); }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  place();
+})();
