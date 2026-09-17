@@ -49,6 +49,16 @@ stagger), the hero entrance on load, and the stat count-up. It only animates
 numeric stats, so the em-dash placeholders are left alone. Everything is
 disabled under `prefers-reduced-motion`.
 
+## Logo files
+
+The crest is stored as transparent PNGs, cut from the original JPEG by
+masking everything outside the circle:
+
+    logo.png      512px, used for the hero watermark and og:image
+    icon-96.png    96px, the nav and footer mark
+    icon-180.png  180px, apple-touch-icon
+    icon-32.png    32px, favicon
+
 ## Preview locally
 
     cd ~/comillas-msc
