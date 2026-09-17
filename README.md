@@ -14,7 +14,7 @@ light-dominant layout, one dark CTA band, editorial columns split by hairline
 rules rather than boxed cards, and an italic-serif emphasis phrase in every
 heading.
 
-Fonts: Playfair Display (headings), Plus Jakarta Sans (body),
+Fonts: Playfair Display (headings), DM Sans (body and UI),
 Cormorant Garamond (large numerals).
 
 ## Colours
@@ -74,18 +74,23 @@ downloaded from PurePNG and downscaled and quantised locally:
 Everything else is drawn in this repo, so it carries no licensing
 obligations at all.
 
-## The fence (valla)
+## The hero etching
 
-`objects/valla.svg` is the source: stone piers with pyramidal caps and
-spear-tipped bars, drawn from the real boundary railing at Comillas.
-`objects/valla.png` is what the page loads, rendered from it at 2x:
+`objects/icade-etch.png` is the ICADE facade and railing, produced from a
+photograph by a Sobel edge-detection pass and recoloured to a single maroon
+ink. It came from a Claude Design handoff.
 
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-      --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
-      --default-background-color=00000000 --window-size=1600,620 \
-      --screenshot=objects/valla.png objects/_valla.html
+It is composited with `mix-blend-mode: multiply` over the amber field, which
+is what makes the lines read as a darker amber rather than a foreign colour.
+Do not remove that blend mode. The `.hero-scrim` layer above it is what keeps
+the body copy at accessible contrast over the bars — do not remove that either.
 
-Edit the SVG, re-render, and commit both.
+The original asset was 1409KB. Its RGB channels were pure redundancy (one
+flat ink colour), so it was rebuilt as flat colour plus its alpha, with the
+alpha quantised to 24 levels: 99KB, visually identical.
+
+If a higher-resolution photograph of the same facade turns up, re-run the
+same pipeline; nothing in the CSS changes.
 
 ## Preview locally
 
