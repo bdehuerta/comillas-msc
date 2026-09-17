@@ -72,6 +72,10 @@ Then open <http://localhost:8000>.
 
 GitHub Pages redeploys in about a minute.
 
+If you changed `style.css` or `motion.js`, run `./bump-version.sh` first and
+commit that too. GitHub Pages caches those files for about ten minutes, so
+without it your change can look like it did not work when it actually did.
+
 ## Hosting
 
 - Repo: `bdehuerta/comillas-msc`
