@@ -331,15 +331,16 @@ h2 { margin-bottom: var(--space-xl); }
 
 .o-hero-a    { width: 230px; top: 6%;   right: 34%; }
 .o-hero-b    { width: 190px; bottom: -14%; left: -46px; }
-.o-pillars   { width: 300px; top: 2%;   right: -72px; }
-.o-stats     { width: 260px; bottom: 6%; left: -58px; }
-.o-program   { width: 320px; top: 8%;   left: -84px; }
-.o-events    { width: 270px; bottom: 4%; right: -60px; }
+.o-pillars   { width: 148px; top: 6%;   right: -40px; }
+
+.o-program   { width: 250px; top: 12%;  left: -96px; }
+.o-events    { width: 210px; bottom: 6%; right: -74px; }
 
 @media (max-width: 860px) {
-  .obj { opacity: .09; }
-  .o-hero-a, .o-program { display: none; }
-  .o-pillars, .o-events { width: 200px; }
+  .obj { opacity: .07; }
+  .o-program { display: none; }
+  .o-pillars { width: 110px; }
+  .o-events  { width: 150px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .obj { transform: none !important; transition: none !important; }
@@ -393,8 +394,8 @@ a:focus-visible, button:focus-visible {
    part of the page rather than clipart dropped on top. Desaturated toward
    the brand rather than left at full stock-photo colour. */
 .obj-photo {
-  opacity: .17; mix-blend-mode: multiply;
-  filter: saturate(.55) contrast(1.04);
+  opacity: .12; mix-blend-mode: multiply;
+  filter: saturate(.5) contrast(1.03);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .obj-photo {
