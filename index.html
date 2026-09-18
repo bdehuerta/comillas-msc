@@ -16,9 +16,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202609182220">
+<link rel="stylesheet" href="style.css?v=202609182239">
 </head>
 <body>
+
+<div id="cursor" aria-hidden="true"></div>
 
 <a class="skip" href="#pillars">Saltar al contenido</a>
 
@@ -66,56 +68,119 @@
     </div>
   </section>
 
-  <section id="pillars" class="band">
+  <section id="pillars" class="band pillars">
     <div class="objects" aria-hidden="true">
       <img class="obj obj-photo o-pillars" src="objects/racquet-photo.png" alt="" data-speed="0.22" data-rot="-9">
     </div>
     <div class="wrap">
-      <h2 class="reveal">Lo que vas a hacer <em>aqu&iacute;</em></h2>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card-num">01</span>
+      <span class="band-rule reveal" aria-hidden="true"></span>
+      <h2 class="display reveal">Lo que vas a hacer <em>aqu&iacute;</em></h2>
+      <article class="slab reveal">
+        <span class="slab-num" data-drift="0.10" aria-hidden="true">01</span>
+        <div class="slab-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="p" cx="22" cy="60" r="11" fill="#45100f"></circle>
+              <path class="p" d="M44 36 A 32 32 0 0 1 44 84" fill="none" stroke="#c08415" stroke-width="9" stroke-linecap="round"></path>
+              <path class="p" d="M66 22 A 48 48 0 0 1 66 98" fill="none" stroke="#c08415" stroke-width="9" stroke-linecap="round"></path>
+            </svg>
+        </div>
+        <div class="slab-body">
           <h3>Desarrollo de campa&ntilde;as</h3>
-          <p>Posicionamiento, mensaje, canales, calendario. Presentas el plan y
-          lo defiendes. Luego descubres qu&eacute; partes sobreviven al contacto
-          con una audiencia real.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">02</span>
+          <p>Posicionamiento, mensaje, canales, calendario. Presentas el plan y lo defiendes. Luego descubres qu&eacute; partes sobreviven al contacto con una audiencia real.</p>
+        </div>
+      </article>
+      <article class="slab reveal">
+        <span class="slab-num" data-drift="0.12" aria-hidden="true">02</span>
+        <div class="slab-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="p" cx="50" cy="48" r="30" fill="none" stroke="#45100f" stroke-width="9"></circle>
+              <path class="p" d="M72 70 L100 98" fill="none" stroke="#45100f" stroke-width="9" stroke-linecap="round"></path>
+              <circle class="p" cx="50" cy="48" r="8" fill="#c08415"></circle>
+            </svg>
+        </div>
+        <div class="slab-body">
           <h3>Investigaci&oacute;n de mercado</h3>
-          <p>Encuestas, entrevistas, an&aacute;lisis de la competencia. Lo dif&iacute;cil
-          es convertir lo que encuentras en una recomendaci&oacute;n que una marca
-          pueda aplicar el lunes. Eso es lo que practicamos.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">03</span>
+          <p>Encuestas, entrevistas, an&aacute;lisis de la competencia. Lo dif&iacute;cil es convertir lo que encuentras en una recomendaci&oacute;n que una marca pueda aplicar el lunes. Eso es lo que practicamos.</p>
+        </div>
+      </article>
+      <article class="slab reveal">
+        <span class="slab-num" data-drift="0.14" aria-hidden="true">03</span>
+        <div class="slab-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="p" cx="60" cy="22" r="13" fill="#c08415"></circle>
+              <rect class="p" x="18" y="46" width="84" height="10" rx="5" fill="#45100f"></rect>
+              <rect class="p" x="26" y="68" width="68" height="10" rx="5" fill="#45100f"></rect>
+              <rect class="p" x="34" y="90" width="52" height="10" rx="5" fill="#45100f"></rect>
+            </svg>
+        </div>
+        <div class="slab-body">
           <h3>Eventos</h3>
-          <p>Charlas con gente que se dedica a esto, visitas a agencias y
-          sesiones donde se ve c&oacute;mo se decide una campa&ntilde;a de verdad. El d&iacute;a
-          a d&iacute;a del marketing, no la versi&oacute;n del manual.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">04</span>
+          <p>Charlas con gente que se dedica a esto, visitas a agencias y sesiones donde se ve c&oacute;mo se decide una campa&ntilde;a de verdad. El d&iacute;a a d&iacute;a del marketing, no la versi&oacute;n del manual.</p>
+        </div>
+      </article>
+      <article class="slab reveal">
+        <span class="slab-num" data-drift="0.16" aria-hidden="true">04</span>
+        <div class="slab-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <path class="p" d="M12 30 H34 V60 H58" fill="none" stroke="#45100f" stroke-width="9" stroke-linecap="round"></path>
+              <path class="p" d="M12 90 H34 V60" fill="none" stroke="#45100f" stroke-width="9" stroke-linecap="round"></path>
+              <path class="p" d="M74 44 L92 60 L74 76" fill="none" stroke="#c08415" stroke-width="9" stroke-linecap="round"></path>
+            </svg>
+        </div>
+        <div class="slab-body">
           <h3>Competiciones</h3>
-          <p>Eliges una competici&oacute;n de casos, te unes a un equipo y compites
-          contra otras universidades con una fecha l&iacute;mite. O quedas arriba o
-          aprendes por qu&eacute; no.</p>
-        </article>
-      </div>
+          <p>Eliges una competici&oacute;n de casos, te unes a un equipo y compites contra otras universidades con una fecha l&iacute;mite. O quedas arriba o aprendes por qu&eacute; no.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section id="program" class="band alt">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>Talleres</span><i aria-hidden="true"></i><span>Competiciones de casos</span><i aria-hidden="true"></i><span>Market Analysts</span><i aria-hidden="true"></i><span>Investigaci&oacute;n</span><i aria-hidden="true"></i><span>Presentaciones en directo</span><i aria-hidden="true"></i><span>Talleres</span><i aria-hidden="true"></i><span>Competiciones de casos</span><i aria-hidden="true"></i><span>Market Analysts</span><i aria-hidden="true"></i><span>Investigaci&oacute;n</span><i aria-hidden="true"></i><span>Presentaciones en directo</span><i aria-hidden="true"></i></div>
+  </div>
+
+  <section id="program" class="band program">
     <div class="objects" aria-hidden="true">
       <img class="obj obj-photo o-program" src="objects/sunglasses-photo.png" alt="" data-speed="0.18" data-rot="7">
     </div>
     <div class="wrap">
-      <h2 class="reveal">El programa <em>Market Analysts</em></h2>
+      <span class="band-rule reveal" aria-hidden="true"></span>
+      <h2 class="display reveal">El programa <em>Market Analysts</em></h2>
       <p class="lede narrow reveal">
         Equipos peque&ntilde;os llevan un reto real de marca por investigaci&oacute;n,
         estrategia, ejecuci&oacute;n y revisi&oacute;n. Al final present&aacute;is ante la marca.
         Nos reunimos cada semana y las sesiones son de trabajo.
       </p>
+      <div class="steps reveal">
+        <span class="steps-line" aria-hidden="true"></span>
+        <span class="steps-track" aria-hidden="true"></span>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="step-node" aria-hidden="true"><i></i></span>
+            <p class="step-num">01</p>
+            <p class="step-name">Investigaci&oacute;n</p>
+            <p class="step-txt">Datos, entrevistas y competencia antes de proponer nada.</p>
+          </div>
+          <div class="step">
+            <span class="step-node" aria-hidden="true"><i></i></span>
+            <p class="step-num">02</p>
+            <p class="step-name">Estrategia</p>
+            <p class="step-txt">Una posici&oacute;n, un mensaje y una raz&oacute;n para cada decisi&oacute;n.</p>
+          </div>
+          <div class="step">
+            <span class="step-node" aria-hidden="true"><i></i></span>
+            <p class="step-num">03</p>
+            <p class="step-name">Ejecuci&oacute;n</p>
+            <p class="step-txt">Piezas, calendario y responsables. Se entrega, no se describe.</p>
+          </div>
+          <div class="step">
+            <span class="step-node" aria-hidden="true"><i></i></span>
+            <p class="step-num">04</p>
+            <p class="step-name">Revisi&oacute;n</p>
+            <p class="step-txt">Presentaci&oacute;n ante la marca y una lectura honesta del resultado.</p>
+          </div>
+        </div>
+      </div>
       <div class="split">
         <div class="split-col reveal">
           <h3>C&oacute;mo funciona</h3>
@@ -144,45 +209,75 @@
       <img class="obj obj-photo o-events" src="objects/bag-photo.png" alt="" data-speed="0.22" data-rot="-12">
     </div>
     <div class="wrap">
-      <h2 class="reveal">Qu&eacute; hay <em>este cuatrimestre</em></h2>
-      <ol class="timeline">
-        <li class="reveal">
-          <span class="when">PLACEHOLDER &mdash; fecha</span>
-          <h3>Evento de bienvenida</h3>
-          <p>Qu&eacute; es el club, c&oacute;mo funciona Market Analysts y c&oacute;mo entrar en un equipo. Sin compromiso.</p>
-        </li>
-        <li class="reveal">
-          <span class="when">PLACEHOLDER &mdash; fecha</span>
-          <h3>Presentaci&oacute;n del briefing</h3>
-          <p>La marca presenta el problema. Los equipos se forman esa misma tarde.</p>
-        </li>
-        <li class="reveal">
-          <span class="when">PLACEHOLDER &mdash; fecha</span>
-          <h3>Taller: posicionamiento y mensaje</h3>
-          <p>Trae una marca que creas mal posicionada. Defiende tu soluci&oacute;n.</p>
-        </li>
-        <li class="reveal">
-          <span class="when">PLACEHOLDER &mdash; fecha</span>
-          <h3>Sesi&oacute;n con invitado</h3>
-          <p>Alguien que se dedica a esto, en una sala peque&ntilde;a, respondiendo a lo que le preguntes.</p>
-        </li>
-        <li class="reveal">
-          <span class="when">PLACEHOLDER &mdash; fecha</span>
-          <h3>Presentaciones finales</h3>
-          <p>Los equipos presentan ante la marca y un jurado.</p>
-        </li>
-      </ol>
+      <span class="band-rule reveal" aria-hidden="true"></span>
+      <h2 class="display reveal">Qu&eacute; hay <em>este cuatrimestre</em></h2>
+      <div class="tl">
+        <span class="tl-line" aria-hidden="true"></span>
+        <span class="tl-prog" aria-hidden="true"></span>
+        <ol class="timeline">
+          <li class="reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="ev-idx" aria-hidden="true">01</span>
+            <div class="ev-body">
+              <span class="when">PLACEHOLDER &mdash; fecha</span>
+              <h3>Evento de bienvenida</h3>
+              <p>Qu&eacute; es el club, c&oacute;mo funciona Market Analysts y c&oacute;mo entrar en un equipo. Sin compromiso.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="ev-idx" aria-hidden="true">02</span>
+            <div class="ev-body">
+              <span class="when">PLACEHOLDER &mdash; fecha</span>
+              <h3>Presentaci&oacute;n del briefing</h3>
+              <p>La marca presenta el problema. Los equipos se forman esa misma tarde.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="ev-idx" aria-hidden="true">03</span>
+            <div class="ev-body">
+              <span class="when">PLACEHOLDER &mdash; fecha</span>
+              <h3>Taller: posicionamiento y mensaje</h3>
+              <p>Trae una marca que creas mal posicionada. Defiende tu soluci&oacute;n.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="ev-idx" aria-hidden="true">04</span>
+            <div class="ev-body">
+              <span class="when">PLACEHOLDER &mdash; fecha</span>
+              <h3>Sesi&oacute;n con invitado</h3>
+              <p>Alguien que se dedica a esto, en una sala peque&ntilde;a, respondiendo a lo que le preguntes.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="ev-idx" aria-hidden="true">05</span>
+            <div class="ev-body">
+              <span class="when">PLACEHOLDER &mdash; fecha</span>
+              <h3>Presentaciones finales</h3>
+              <p>Los equipos presentan ante la marca y un jurado.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
   <section id="join" class="band join">
+    <img class="join-crest" src="logo.png" alt="" aria-hidden="true" width="420" height="420">
     <div class="wrap">
-      <h2 class="reveal">El evento de bienvenida est&aacute; <em>abierto a todos</em></h2>
+      <h2 class="display reveal">El evento de bienvenida est&aacute; <em>abierto a todos</em></h2>
       <p class="lede reveal">Si te apasiona el marketing, &iexcl;ap&uacute;ntate!</p>
       <div class="hero-actions reveal">
-        <a class="btn ghost light" href="https://www.instagram.com/comillasmsc/">Instagram</a>
-        <a class="btn ghost light" href="https://www.linkedin.com/company/comillas-marketing-strategy-club">LinkedIn</a>
-        <a class="btn ghost light" href="https://chat.whatsapp.com/FZ08H0YgjcN1dDZmpprIDC">Grupo de WhatsApp</a>
+        <a class="btn solid" href="https://chat.whatsapp.com/FZ08H0YgjcN1dDZmpprIDC">
+          <span>Grupo de WhatsApp</span>
+          <span class="btn-arrow" aria-hidden="true">&#8599;</span>
+          <span class="btn-gleam" aria-hidden="true"></span>
+        </a>
+        <a class="btn outline" href="https://www.instagram.com/comillasmsc/">Instagram</a>
+        <a class="btn outline" href="https://www.linkedin.com/company/comillas-marketing-strategy-club">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -190,26 +285,28 @@
 </main>
 
 <footer>
-  <div class="wrap foot-inner">
-    <div class="foot-id">
-      <img class="foot-mark" src="icon-96.png" alt="" width="40" height="40">
-      <div>
-        <p class="foot-brand">Comillas Marketing &amp; Strategy Club</p>
-        <p class="muted">Universidad Pontificia Comillas &middot; ICADE &middot; Madrid</p>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-id">
+        <img class="foot-mark" src="icon-96.png" alt="" width="40" height="40">
+        <div>
+          <p class="foot-brand">Comillas Marketing &amp; Strategy Club</p>
+          <p class="muted">Universidad Pontificia Comillas &middot; ICADE &middot; Madrid</p>
+        </div>
       </div>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/comillasmsc/">Instagram</a>
+        <a href="https://www.linkedin.com/company/comillas-marketing-strategy-club">LinkedIn</a>
+        <a href="https://chat.whatsapp.com/FZ08H0YgjcN1dDZmpprIDC">WhatsApp</a>
+      </div>
+      <p class="muted disclaimer">
+        CM&amp;SC es un club estudiantil independiente y no representa
+        oficialmente a la Universidad Pontificia Comillas.
+      </p>
     </div>
-    <div class="foot-links">
-      <a href="https://www.instagram.com/comillasmsc/">Instagram</a>
-      <a href="https://www.linkedin.com/company/comillas-marketing-strategy-club">LinkedIn</a>
-      <a href="https://chat.whatsapp.com/FZ08H0YgjcN1dDZmpprIDC">WhatsApp</a>
-    </div>
-    <p class="muted disclaimer">
-      CM&amp;SC es un club estudiantil independiente y no representa
-      oficialmente a la Universidad Pontificia Comillas.
-    </p>
   </div>
 </footer>
 
-<script src="motion.js?v=202609182220" defer></script>
+<script src="motion.js?v=202609182239" defer></script>
 </body>
 </html>

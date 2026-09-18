@@ -467,3 +467,255 @@ a:focus-visible, button:focus-visible {
     mix-blend-mode: screen; opacity: .13; filter: saturate(.5) brightness(1.1);
   }
 }
+
+
+/* ============================================================
+   SECTIONS 04-08 — SECOND PASS
+   Reference: large-scale editorial type, full-bleed colour
+   blocks, one looping marquee, flat two-tone marks.
+   Everything above this block is untouched: tokens, base type,
+   hero and its dark-mode overrides all stand.
+   ============================================================ */
+
+/* --- shared section furniture --- */
+.band-rule { display: block; height: 1px; background: var(--line); margin-bottom: 40px; }
+h2.display {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 5.6rem); line-height: 1.02;
+  letter-spacing: -0.032em; max-width: 20ch; margin: 0 0 var(--space-2xl);
+  text-wrap: balance;
+}
+h2.display em { font-style: italic; font-weight: 500; color: var(--brand); }
+
+/* --- 04 pillars: oversized numeral slabs --- */
+.pillars { padding-bottom: 40px; }
+.slab {
+  display: grid; align-items: start; gap: 0 36px; position: relative;
+  grid-template-columns: clamp(108px, 14vw, 210px) 132px minmax(0, 1.5fr);
+  padding: 46px 0; border-top: 1px solid var(--line);
+}
+.slab:last-of-type { border-bottom: 1px solid var(--line); }
+.slab-num {
+  font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300;
+  font-size: clamp(4.4rem, 12vw, 10rem); line-height: .82; color: #f0d9d9;
+  letter-spacing: -0.03em; display: block; will-change: transform;
+}
+.slab-mark { padding-top: 14px; transition: transform .55s var(--ease); }
+.slab-mark svg { width: 124px; height: auto; display: block; overflow: visible; }
+.slab:hover .slab-mark { transform: translateY(-8px); }
+.slab-body { padding-top: 18px; }
+.slab-body h3 {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 500;
+  font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.16;
+  letter-spacing: -0.018em; margin: 0 0 16px;
+}
+.slab-body p { color: var(--ink-soft); font-size: 15.6px; line-height: 1.72; margin: 0; text-wrap: pretty; }
+
+/* marks assemble primitive by primitive as the slab arrives */
+.motion-on .slab-mark .p {
+  opacity: 0; transform: translateY(12px) scale(.86); transform-origin: 60px 60px;
+  transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.motion-on .reveal.is-in .slab-mark .p { opacity: 1; transform: none; }
+.motion-on .slab-mark .p:nth-child(1) { transition-delay: .16s; }
+.motion-on .slab-mark .p:nth-child(2) { transition-delay: .25s; }
+.motion-on .slab-mark .p:nth-child(3) { transition-delay: .34s; }
+.motion-on .slab-mark .p:nth-child(4) { transition-delay: .43s; }
+
+/* --- looping marquee: the club's own work, nothing borrowed --- */
+.marquee {
+  background: var(--brand-deep); color: #fdf8f1; overflow: hidden;
+  padding: 20px 0; display: flex;
+}
+.marquee-track {
+  display: flex; align-items: center; flex: none; white-space: nowrap;
+  animation: marquee 34s linear infinite;
+}
+.marquee-track span {
+  font-family: "Playfair Display", Georgia, serif; font-style: italic;
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem); padding: 0 26px; letter-spacing: -0.01em;
+}
+.marquee-track i { width: 7px; height: 7px; flex: none; background: var(--gold); transform: rotate(45deg); }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- 05 programme: the dark block --- */
+.program {
+  background: var(--brand-deepest); color: #fdf8f1;
+  border: 0; position: relative; overflow: hidden;
+}
+.program .band-rule { background: rgba(253,248,241,.18); }
+.program h2.display { color: #fdf8f1; }
+.program h2.display em { color: var(--gold); }
+.program .lede { color: #e7d3cf; max-width: 52ch; }
+.program h3 { color: #fdf8f1; }
+.program .ticks li { color: #e7d3cf; }
+.program .obj-photo { mix-blend-mode: screen; opacity: .1; }
+
+.steps { position: relative; margin: 24px 0 var(--space-2xl); }
+.steps-line { position: absolute; left: 0; right: 0; top: 11px; height: 1px; background: rgba(253,248,241,.2); }
+.steps-track { position: absolute; left: 0; top: 11px; height: 2px; width: 0; background: var(--gold);
+  transition: width 1.6s cubic-bezier(.22,.61,.36,1) .2s; }
+.reveal.is-in .steps-track, .motion-off .steps-track { width: 100%; }
+.steps-grid { position: relative; display: grid; gap: 34px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.step { padding-right: 18px; }
+.step-node { width: 22px; height: 22px; border-radius: 999px; border: 2px solid var(--gold);
+  background: var(--brand-deepest); display: grid; place-items: center; margin: 0 0 26px;
+  transform: scale(.4); opacity: 0;
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), opacity .5s ease; }
+.step-node i { width: 8px; height: 8px; border-radius: 999px; background: var(--gold); display: block; }
+.reveal.is-in .step-node, .motion-off .step-node { transform: none; opacity: 1; }
+.step:nth-child(1) .step-node { transition-delay: .3s; }
+.step:nth-child(2) .step-node { transition-delay: .48s; }
+.step:nth-child(3) .step-node { transition-delay: .66s; }
+.step:nth-child(4) .step-node { transition-delay: .84s; }
+.step-num { font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.6rem;
+  font-weight: 300; line-height: 1; color: var(--gold); margin: 0 0 10px; }
+.step-name { font-family: "Playfair Display", Georgia, serif; font-size: 1.24rem; margin: 0 0 8px; }
+.step-txt { font-size: 14px; color: #d9c2be; margin: 0; line-height: 1.62; }
+.program .split { gap: 56px; }
+
+/* --- 06 events: big rows on a spine that fills as you read --- */
+.tl { position: relative; }
+.tl-line { position: absolute; left: 7px; top: 10px; bottom: 60px; width: 1px; background: var(--line); }
+.tl-prog { position: absolute; left: 7px; top: 10px; bottom: 60px; width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--brand));
+  transform-origin: top; transform: scaleY(0); }
+.motion-off .tl-prog { transform: scaleY(1); }
+.timeline li {
+  position: relative; display: grid; gap: 0 28px; align-items: start;
+  grid-template-columns: 86px minmax(0, 1fr);
+  padding: 30px 0 30px 46px; border-left: 0;
+}
+.timeline li::before { display: none; }
+.timeline li + li { border-top: 1px solid var(--line); }
+.tl-dot { position: absolute; left: 0; top: 40px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--line);
+  transition: border-color .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1); }
+.timeline li.is-active .tl-dot { border-color: var(--gold); transform: scale(1.2); }
+.ev-idx { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 300;
+  font-size: 3.2rem; line-height: .9; color: var(--brand-tint); }
+.timeline h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.18;
+  letter-spacing: -0.016em; margin: 0 0 10px; }
+.timeline p { color: var(--ink-soft); font-size: 15.4px; margin: 0; max-width: 58ch; line-height: 1.7; }
+.when { margin-bottom: 10px; }
+
+/* --- 07 closing band: gold, bookending the amber hero --- */
+.join { background: var(--gold); color: #2e0709; border: 0; }
+.join::before { opacity: .07; }
+.join h2.display { color: #2e0709; max-width: 22ch; margin-bottom: 24px; }
+.join h2.display em { color: #7a1a22; }
+.join .lede { color: #4a1305; max-width: 44ch; margin-bottom: 44px; }
+.join-crest { position: absolute; right: -140px; top: 50%; margin-top: -210px;
+  width: 420px; height: 420px; opacity: .08; z-index: 0; pointer-events: none;
+  animation: crestSpin 90s linear infinite; }
+@keyframes crestSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.join .btn { min-height: 52px; }
+.btn.solid { background: #2e0709; border-color: #2e0709; color: #fdf8f1;
+  font-size: 15.5px; font-weight: 700; gap: 10px; position: relative; overflow: hidden; }
+.btn.solid:hover { background: #2e0709; color: #fdf8f1; box-shadow: 0 16px 34px rgba(46,7,9,.28); }
+.btn.solid span { white-space: nowrap; }
+.btn.outline { background: transparent; color: #2e0709; border: 1.5px solid rgba(46,7,9,.45); font-weight: 600; }
+.btn.outline:hover { background: rgba(253,248,241,.34); border-color: #2e0709; color: #2e0709; }
+.btn-gleam { position: absolute; top: 0; bottom: 0; left: 0; width: 48px; transform: translateX(-130%);
+  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%); }
+.btn.solid:hover .btn-gleam { animation: gleam .9s cubic-bezier(.3,.2,.2,1); }
+@keyframes gleam { from { transform: translateX(-130%); } to { transform: translateX(320%); } }
+
+/* --- 08 footer: quiet. The name sits at label size beside the crest. --- */
+footer { padding: var(--space-xl) 0 32px; }
+.foot-inner { display: flex; flex-wrap: wrap; gap: 20px 32px;
+  justify-content: space-between; align-items: center; }
+
+/* --- responsive --- */
+@media (max-width: 900px) {
+  .slab { grid-template-columns: minmax(0, 1fr) 108px; gap: 0 24px; }
+  .slab-body { grid-column: 1 / -1; padding-top: 22px; }
+  .slab-mark svg { width: 104px; }
+  .steps-line, .steps-track { display: none; }
+}
+@media (max-width: 620px) {
+  .slab { grid-template-columns: 1fr auto; padding: 34px 0; }
+  .slab-mark svg { width: 84px; }
+  .timeline li { grid-template-columns: 1fr; padding-left: 34px; }
+  .ev-idx { font-size: 2.2rem; }
+  .marquee-track span { padding: 0 18px; }
+  .join-crest { right: -180px; width: 320px; height: 320px; margin-top: -160px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .join-crest { animation: none; }
+  .btn.solid:hover .btn-gleam { animation: none; }
+  .tl-prog { transform: scaleY(1); }
+  .steps-track { width: 100%; }
+  .step-node { transform: none; opacity: 1; }
+  .slab-mark .p { opacity: 1 !important; transform: none !important; }
+  .slab-num { transform: none !important; }
+}
+
+/* dark scheme: the white bands invert through the tokens; the burgundy,
+   gold and amber blocks are fixed by design and stay as they are. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .slab-num,
+  :root:not([data-theme="light"]) .ev-idx { color: #2e2022; }
+  :root:not([data-theme="light"]) .tl-dot { background: var(--bg); }
+}
+
+
+/* ============================================================
+   CUSTOM CURSOR
+   A ring that trails the pointer and opens over anything
+   clickable. Fine-pointer devices only: touch and coarse
+   pointers never see it and keep their native behaviour.
+   ============================================================ */
+#cursor { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-on, .cursor-on a, .cursor-on button, .cursor-on .btn { cursor: none; }
+  #cursor {
+    display: block; position: fixed; top: 0; left: 0; z-index: 300;
+    width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%;
+    border: 1.5px solid var(--brand-deep); background: rgba(46, 7, 9, .55);
+    pointer-events: none; opacity: 0;
+    transition: width .28s var(--ease), height .28s var(--ease),
+                margin .28s var(--ease), background-color .28s var(--ease),
+                border-color .28s var(--ease), opacity .2s ease;
+  }
+  #cursor.is-visible { opacity: 1; }
+  #cursor.is-link {
+    width: 40px; height: 40px; margin: -20px 0 0 -20px;
+    background: rgba(46, 7, 9, .3);
+  }
+  #cursor.is-down { transform-origin: center; }
+  /* over the dark and gold blocks the ring switches ink */
+  #cursor.on-dark { border-color: var(--gold); background: rgba(240, 168, 36, .5); }
+  #cursor.on-dark.is-link { background: rgba(240, 168, 36, .28); }
+  #cursor.on-gold { border-color: #2e0709; background: rgba(46, 7, 9, .6); }
+  #cursor.on-gold.is-link { background: rgba(46, 7, 9, .32); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cursor { transition: none; }
+}
+
+
+/* --- nav links: a real hover state, not just an opacity nudge --- */
+.nav nav a:not(.nav-cta) { position: relative; color: var(--ink); opacity: .78;
+  transition: color .25s var(--ease), opacity .25s var(--ease); }
+.nav nav a:not(.nav-cta)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 1.5px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform .3s var(--ease);
+}
+.nav nav a:not(.nav-cta):hover,
+.nav nav a:not(.nav-cta):focus-visible { opacity: 1; color: var(--brand-deepest); }
+.nav nav a:not(.nav-cta):hover::after,
+.nav nav a:not(.nav-cta):focus-visible::after { transform: scaleX(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav nav a:not(.nav-cta):hover { color: #fdf3e2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav nav a:not(.nav-cta)::after { transition: none; }
+}

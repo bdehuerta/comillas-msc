@@ -137,3 +137,102 @@
     })(el);
   }
 })();
+
+/* Second pass: the events spine fills as you read, the active entry's dot
+   turns gold, and the oversized slab numerals drift horizontally against
+   the scroll. One rAF-throttled listener for all three, same pattern as
+   the parallax props above. Skipped entirely under reduced-motion. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var host  = document.querySelector('.tl');
+  var prog  = host ? host.querySelector('.tl-prog') : null;
+  var items = host ? [].slice.call(host.querySelectorAll('.timeline > li')) : [];
+  var nums  = [].slice.call(document.querySelectorAll('[data-drift]'));
+  if (!host && !nums.length) return;
+
+  var ticking = false;
+
+  function frame() {
+    var vh = window.innerHeight;
+
+    if (host) {
+      var r = host.getBoundingClientRect();
+      if (prog) {
+        var p = (vh * 0.68 - r.top) / r.height;
+        prog.style.transform = 'scaleY(' + Math.max(0, Math.min(1, p)).toFixed(3) + ')';
+      }
+      for (var i = 0; i < items.length; i++) {
+        var b = items[i].getBoundingClientRect();
+        items[i].classList.toggle('is-active', b.top < vh * 0.66 && b.bottom > 0);
+      }
+    }
+
+    for (var j = 0; j < nums.length; j++) {
+      var el = nums[j];
+      var q = el.getBoundingClientRect();
+      if (q.bottom < -160 || q.top > vh + 160) continue;
+      // -1 entering, +1 leaving
+      var t = (vh / 2 - (q.top + q.height / 2)) / (vh / 2 + q.height / 2);
+      var amt = parseFloat(el.dataset.drift) || 0.1;
+      el.style.transform = 'translate3d(' + (t * amt * 150).toFixed(1) + 'px,0,0)';
+    }
+
+    ticking = false;
+  }
+
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  frame();
+})();
+
+/* Custom cursor: a ring that trails the pointer, opens over anything
+   clickable, and swaps ink over the dark and gold blocks. Fine pointers
+   only — touch devices keep their native behaviour and never load it.
+   Under reduced-motion the ring tracks the pointer exactly, with no lag. */
+(function () {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  var ring = document.getElementById('cursor');
+  if (!ring) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('cursor-on');
+
+  var tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+  var x = tx, y = ty, raf = null;
+
+  function render() {
+    if (reduced) { x = tx; y = ty; }
+    else { x += (tx - x) * 0.18; y += (ty - y) * 0.18; }
+    ring.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
+    if (!reduced && (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1)) {
+      raf = requestAnimationFrame(render);
+    } else {
+      raf = null;
+    }
+  }
+
+  function kick() { if (!raf) raf = requestAnimationFrame(render); }
+
+  document.addEventListener('mousemove', function (e) {
+    tx = e.clientX; ty = e.clientY;
+    ring.classList.add('is-visible');
+
+    var el = e.target instanceof Element ? e.target : null;
+    var link = el ? el.closest('a, button, [role="button"]') : null;
+    ring.classList.toggle('is-link', !!link);
+
+    var dark = el ? el.closest('.program, .marquee, footer .foot-links') : null;
+    var gold = el ? el.closest('.join, .hero') : null;
+    ring.classList.toggle('on-dark', !!dark);
+    ring.classList.toggle('on-gold', !dark && !!gold);
+
+    kick();
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', function () { ring.classList.remove('is-visible'); });
+  document.addEventListener('mouseenter', function () { ring.classList.add('is-visible'); });
+  window.addEventListener('blur', function () { ring.classList.remove('is-visible'); });
+})();
