@@ -28,15 +28,14 @@ All user-facing copy is Castilian Spanish (`lang="es-ES"`). Accents are
 written as HTML entities. Keep both conventions.
 
 ## Structure
-1. Announcement bar — welcome-event sign-ups
-2. Sticky translucent nav
-3. Hero — amber field, etched ICADE facade, already redesigned, DO NOT CHANGE
-4. `#pillars` — four numbered editorial columns split by hairline rules
+1. Sticky translucent nav
+2. Hero — amber field, etched ICADE facade, already redesigned, DO NOT CHANGE
+3. `#pillars` — four numbered editorial columns split by hairline rules
    (01 campaigns, 02 research, 03 events, 04 competitions)
-5. `#program` — Market Analysts, two bullet lists
-6. `#events` — vertical timeline, five entries
-7. `#join` — dark closing band with grain
-8. Footer
+4. `#program` — Market Analysts, two bullet lists
+5. `#events` — vertical timeline, five entries
+6. `#join` — dark closing band with grain
+7. Footer
 
 ## Design tokens
 Burgundy `#2E0709` / `#45100F` / `#7A1A22` · gold `#F0A824` · cream `#FDF8F1`
@@ -63,13 +62,15 @@ uppercase category labels as headings. The club's audience is 19–22 and
 reacts badly to copy that reads as generated.
 
 ## What still needs real content
-Search for `PLACEHOLDER` (6 occurrences): the sign-up form URL used by the
-announcement bar, and the five event dates. Nothing else.
+Search for `PLACEHOLDER` (5 occurrences): the five event dates. Nothing else.
+Every call to action now points at the club's WhatsApp group; there is no
+sign-up form.
 
 ## Deliberate omissions — do not "fix" these
 The client removed these on purpose. Do not reinstate them:
 - `#program` ends after the two bullet lists, with no closing note.
 - The footer has Instagram, LinkedIn and WhatsApp, and no email link.
+- There is no announcement bar at the top.
 - There is no team/board section.
 - There is no stats band and no partner logo marquee.
 
@@ -79,7 +80,7 @@ draws the eye. Promoting the WhatsApp link to a filled burgundy button is the
 obvious fix if you agree.
 
 ## What to work on
-The hero is done. Focus on sections 4–8.
+The hero is done. Focus on sections 3–7.
 BRIEF
 
 (cd "$TMP" && zip -qr "$OUT" comillas-msc-site)

@@ -53,21 +53,6 @@ body {
   padding: 10px 16px; border-radius: 8px; z-index: 200; }
 .skip:focus { left: 16px; top: 16px; }
 
-/* ---------------- announcement bar ---------------- */
-.announce {
-  background: #2e0709; color: #f6e7d6; gap: 22px; padding: 13px 24px;
-  font-size: 13.5px; text-align: center; padding: 10px 16px;
-  display: flex; align-items: center; justify-content: center; gap: 14px;
-  flex-wrap: wrap;
-}
-.announce strong { font-weight: 700; }
-.announce .pill {
-  background: #fff; color: var(--brand-deepest); text-decoration: none;
-  font-size: 12.5px; font-weight: 700; padding: 5px 14px; border-radius: 999px;
-  transition: background .2s ease, color .2s ease;
-}
-.announce .pill:hover { background: var(--gold); }
-
 /* ---------------- nav ---------------- */
 .nav {
   position: sticky; top: 0; z-index: 100;
@@ -361,7 +346,7 @@ h2 { margin-bottom: var(--space-xl); }
 .lede { margin-bottom: var(--space-lg); }
 
 /* touch targets ≥44px */
-.btn, .nav-cta, .announce .pill { min-height: 44px; display: inline-flex;
+.btn, .nav-cta { min-height: 44px; display: inline-flex;
   align-items: center; justify-content: center; }
 .nav nav a { min-height: 44px; display: inline-flex; align-items: center; }
 
@@ -459,7 +444,7 @@ h1 { font-size: clamp(2.6rem, 1.8rem + 5.4vw, 6.4rem); line-height: .98; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px;
 }
-.join a:focus-visible, .announce a:focus-visible { outline-color: var(--gold); }
+.join a:focus-visible { outline-color: var(--gold); }
 
 /* ---- reduced motion: belt and braces over the per-effect rules ---- */
 @media (prefers-reduced-motion: reduce) {
