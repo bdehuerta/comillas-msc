@@ -288,7 +288,8 @@ p { margin: 0 0 14px; }
 /* ---------------- dark join band ---------------- */
 .join { background: var(--brand-deepest); color: #fff;
   border: 0; position: relative; overflow: hidden; }
-.join h2 { max-width: 22ch; margin-bottom: 32px; }
+.join h2 { max-width: 22ch; margin-bottom: 20px; }
+.join .lede { color: #e4cfcf; margin-bottom: 34px; }
 .join h2 em { color: var(--gold); }
 
 /* ---------------- footer ---------------- */

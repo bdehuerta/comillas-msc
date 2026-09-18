@@ -63,8 +63,20 @@ uppercase category labels as headings. The club's audience is 19–22 and
 reacts badly to copy that reads as generated.
 
 ## What still needs real content
-Search for `PLACEHOLDER`: the sign-up form URL, five event dates, the meeting
-weekday/time/room, and the contact email.
+Search for `PLACEHOLDER` (6 occurrences): the sign-up form URL used by the
+announcement bar, and the five event dates. Nothing else.
+
+## Deliberate omissions — do not "fix" these
+The client removed these on purpose. Do not reinstate them:
+- `#program` ends after the two bullet lists, with no closing note.
+- The footer has Instagram, LinkedIn and WhatsApp, and no email link.
+- There is no team/board section.
+- There is no stats band and no partner logo marquee.
+
+## Known open issue
+The `#join` band has three outline buttons and no filled primary, so nothing
+draws the eye. Promoting the WhatsApp link to a filled burgundy button is the
+obvious fix if you agree.
 
 ## What to work on
 The hero is done. Focus on sections 4–8.
