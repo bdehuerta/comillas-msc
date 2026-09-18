@@ -719,3 +719,13 @@ footer { padding: var(--space-xl) 0 32px; }
 @media (prefers-reduced-motion: reduce) {
   .nav nav a:not(.nav-cta)::after { transition: none; }
 }
+
+/* El ampersand de Playfair es muy caligrafico junto a las mayusculas.
+   Cormorant Garamond en cursiva da el ampersand editorial clasico, y ya
+   la cargamos para los numerales, asi que no anade ninguna descarga. */
+.amp {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic; font-weight: 500;
+  font-size: 1.22em; line-height: 0;
+  padding: 0 .02em;
+}
