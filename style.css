@@ -177,7 +177,7 @@ h1 em, h2 em { font-style: italic; font-weight: 600; color: var(--brand); }
   max-width: 640px; font-size: clamp(16px, 1.32vw, 19.5px); line-height: 1.62;
   color: #47110f; margin: 34px 0 0; text-wrap: pretty;
 }
-.hero-actions { margin-top: 40px; gap: 14px; }
+.hero .hero-actions { margin-top: 40px; gap: 14px; }
 .hero .btn {
   background: #2e0709; color: #fdf8f1; border-color: #2e0709;
   font-size: 16px; padding: 17px 30px;
@@ -288,9 +288,8 @@ p { margin: 0 0 14px; }
 /* ---------------- dark join band ---------------- */
 .join { background: var(--brand-deepest); color: #fff;
   border: 0; position: relative; overflow: hidden; }
-.join h2 { max-width: 22ch; }
+.join h2 { max-width: 22ch; margin-bottom: 32px; }
 .join h2 em { color: var(--gold); }
-.join .lede { color: #e4cfcf; }
 
 /* ---------------- footer ---------------- */
 footer { border-top: 1px solid var(--line); padding: 32px 0; }
